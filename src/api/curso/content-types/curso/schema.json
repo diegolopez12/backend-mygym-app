@@ -21,13 +21,22 @@
       "type": "string",
       "required": true
     },
-    "fecha": {
-      "type": "string",
-      "required": true
-    },
     "capacidad": {
       "type": "string",
       "required": true
+    },
+    "fecha": {
+      "type": "datetime"
+    },
+    "estudiantes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::usuario.usuario"
+    },
+    "instructor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::usuario.usuario"
     }
   }
 }

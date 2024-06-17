@@ -36,16 +36,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::curso.curso"
-    },
-    "usuarios": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::usuario.usuario"
-    },
-    "asistencia": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::asistencia.asistencia"
     }
   }
 }

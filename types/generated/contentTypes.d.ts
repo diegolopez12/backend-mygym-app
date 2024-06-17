@@ -808,6 +808,11 @@ export interface ApiAsistenciaAsistencia extends Schema.CollectionType {
     fecha: Attribute.DateTime & Attribute.Required;
     status: Attribute.Enumeration<['ausente', 'presente', 'excluido']> &
       Attribute.Required;
+    usuario: Attribute.Relation<
+      'api::asistencia.asistencia',
+      'oneToOne',
+      'api::usuario.usuario'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -840,8 +845,18 @@ export interface ApiCursoCurso extends Schema.CollectionType {
   attributes: {
     nombre: Attribute.String & Attribute.Required;
     descripcion: Attribute.String & Attribute.Required;
-    fecha: Attribute.String & Attribute.Required;
     capacidad: Attribute.String & Attribute.Required;
+    fecha: Attribute.DateTime;
+    estudiantes: Attribute.Relation<
+      'api::curso.curso',
+      'oneToMany',
+      'api::usuario.usuario'
+    >;
+    instructor: Attribute.Relation<
+      'api::curso.curso',
+      'oneToOne',
+      'api::usuario.usuario'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -880,16 +895,6 @@ export interface ApiUsuarioUsuario extends Schema.CollectionType {
       'api::usuario.usuario',
       'oneToMany',
       'api::curso.curso'
-    >;
-    usuarios: Attribute.Relation<
-      'api::usuario.usuario',
-      'oneToMany',
-      'api::usuario.usuario'
-    >;
-    asistencia: Attribute.Relation<
-      'api::usuario.usuario',
-      'oneToOne',
-      'api::asistencia.asistencia'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

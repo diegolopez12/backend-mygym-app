@@ -29,6 +29,11 @@
         "excluido"
       ],
       "required": true
+    },
+    "usuario": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::usuario.usuario"
     }
   }
 }
