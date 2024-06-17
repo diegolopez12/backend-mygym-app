@@ -4,28 +4,31 @@
   "info": {
     "singularName": "asistencia",
     "pluralName": "asistencias",
-    "displayName": "Asistencia"
+    "displayName": "Asistencia",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Usuario": {
-      "type": "string",
-      "required": true
-    },
     "curso": {
-      "type": "string",
-      "required": true
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::curso.curso"
     },
     "fecha": {
-      "type": "string",
+      "type": "datetime",
       "required": true
     },
     "status": {
-      "type": "string",
-      "required": false
+      "type": "enumeration",
+      "enum": [
+        "ausente",
+        "presente",
+        "excluido"
+      ],
+      "required": true
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "curso",
     "pluralName": "cursos",
-    "displayName": "Curso"
+    "displayName": "Curso",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,16 +14,20 @@
   "attributes": {
     "nombre": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": false
     },
     "descripcion": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "fecha": {
+      "type": "string",
+      "required": true
     },
     "capacidad": {
-      "type": "string"
-    },
-    "fechaInicio": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

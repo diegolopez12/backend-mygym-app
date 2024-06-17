@@ -4,31 +4,48 @@
   "info": {
     "singularName": "usuario",
     "pluralName": "usuarios",
-    "displayName": "Usuario"
+    "displayName": "Usuario",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Nombre": {
+    "nombre": {
       "type": "string",
       "required": true
     },
-    "primerAPellido": {
-      "type": "string"
-    },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
     },
     "role": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "admin",
+        "client"
+      ],
+      "required": true
     },
     "cursos": {
-      "type": "string"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::curso.curso"
     },
-    "instructor": {
-      "type": "string"
+    "usuarios": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::usuario.usuario"
+    },
+    "asistencia": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::asistencia.asistencia"
     }
   }
 }
